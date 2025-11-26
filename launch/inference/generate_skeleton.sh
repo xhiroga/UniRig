@@ -54,7 +54,7 @@ wait
 
 # 2. inference skeleton
 cmd="\
-    python run.py \
+    uv run python run.py \
     --task=$skeleton_task \
     --seed=$seed \
 "

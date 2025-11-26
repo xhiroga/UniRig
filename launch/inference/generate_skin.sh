@@ -54,7 +54,7 @@ wait
 
 # 2. inference skin
 cmd="\
-    python run.py \
+    uv run python run.py \
     --task=$skin_task \
     --seed=$seed \
 "
