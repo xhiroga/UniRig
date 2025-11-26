@@ -5,10 +5,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "addict>=2.4.0",
-    "bpy==4.2",
     "einops>=0.8.1",
     "fast-simplification>=0.1.11",
-    "flash-attn>=2.8.0",
+    "flash-attn==2.8.3",
     "huggingface-hub>=0.33.2",
     "lightning>=2.5.2",
     "numpy==1.26.4",
