@@ -4,12 +4,14 @@ from tqdm import tqdm
 from box import Box
 import yaml
 
+from ..data.utils import resolve_path
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', type=str)
     args = parser.parse_args()
     
-    config = Box(yaml.safe_load(open(args.config, "r")))
+    config = Box(yaml.safe_load(open(resolve_path(args.config), "r")))
 
     dataset = config.output_dataset_dir
     

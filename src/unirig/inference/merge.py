@@ -23,6 +23,7 @@ from mathutils import Vector
 
 from ..data.raw_data import RawData, RawSkin
 from ..data.extract import process_mesh, process_armature, get_arranged_bones
+from ..data.utils import resolve_path
 
 def parser():
     parser = argparse.ArgumentParser()
@@ -461,9 +462,9 @@ if __name__ == "__main__":
         transfer(args.source, args.target, args.output, args.add_root)
         exit()
 
-    data_config     = Box(yaml.safe_load(open(args.data_config, "r")))
-    skeleton_config = Box(yaml.safe_load(open(args.skeleton_config, "r")))
-    skin_config     = Box(yaml.safe_load(open(args.skin_config, "r")))
+    data_config     = Box(yaml.safe_load(open(resolve_path(args.data_config), "r")))
+    skeleton_config = Box(yaml.safe_load(open(resolve_path(args.skeleton_config), "r")))
+    skin_config     = Box(yaml.safe_load(open(resolve_path(args.skin_config), "r")))
 
     num_runs        = args.num_runs
     id              = args.id

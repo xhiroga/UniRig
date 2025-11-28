@@ -5,6 +5,7 @@ import yaml
 from box import Box
 
 from .spec import ConfigSpec
+from .utils import resolve_path
 
 @dataclass
 class OrderConfig(ConfigSpec):
@@ -29,7 +30,7 @@ class OrderConfig(ConfigSpec):
         parts_order = {}
         for (cls, path) in skeleton_path.items():
             assert cls not in parts, 'cls conflicts'
-            d = Box(yaml.safe_load(open(path, 'r')))
+            d = Box(yaml.safe_load(open(resolve_path(path), 'r')))
             parts[cls] = d.parts
             parts_order[cls] = d.parts_order
         return OrderConfig(

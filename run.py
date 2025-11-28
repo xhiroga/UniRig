@@ -17,6 +17,7 @@ from unirig.data.extract import get_files
 from unirig.data.dataset import UniRigDatasetModule, DatasetConfig, ModelInput
 from unirig.data.datapath import Datapath
 from unirig.data.transform import TransformConfig
+from unirig.data.utils import resolve_path
 from unirig.tokenizer.spec import TokenizerConfig
 from unirig.tokenizer.parse import get_tokenizer
 from unirig.model.parse import get_model
@@ -30,7 +31,7 @@ def load(task: str, path: str) -> Box:
         path = path.removesuffix('.yaml')
     path += '.yaml'
     print(f"\033[92mload {task} config: {path}\033[0m")
-    return Box(yaml.safe_load(open(path, 'r')))
+    return Box(yaml.safe_load(open(resolve_path(path), 'r')))
 
 def nullable_string(val):
     if not val:

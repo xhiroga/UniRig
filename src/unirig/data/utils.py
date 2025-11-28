@@ -2,7 +2,9 @@ import torch
 import numpy as np
 from numpy import ndarray
 from torch import Tensor, FloatTensor
-from typing import Tuple, Union
+from typing import Tuple, Union, TextIO
+from importlib import resources
+from pathlib import Path
 
 from scipy.spatial.transform import Rotation as R
 from scipy.sparse import csc_matrix
@@ -256,3 +258,11 @@ def linear_blend_skinning(
             return final.T
     else:
         assert 0, f'unsupported shape: {vertex.shape}'
+
+def resolve_path(path: str) -> Path:
+    path_obj = Path(path)
+
+    if path_obj.is_absolute():
+        return path_obj
+
+    return Path(str(resources.files('unirig') / path))

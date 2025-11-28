@@ -15,6 +15,7 @@ import os
 
 from .log import new_entry, add_error, add_warning, new_log, end_log
 from .raw_data import RawData
+from .utils import resolve_path
 
 def load(filepath: str):
     old_objs = set(bpy.context.scene.objects)
@@ -543,7 +544,7 @@ def parse():
 if __name__ == "__main__":
     args = parse()
     
-    config = Box(yaml.safe_load(open(args.config, "r")))
+    config = Box(yaml.safe_load(open(resolve_path(args.config), "r")))
     
     num_runs        = args.num_runs
     id              = args.id
