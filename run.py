@@ -10,17 +10,17 @@ from typing import List
 from math import ceil
 import numpy as np
 from lightning.pytorch.strategies import FSDPStrategy, DDPStrategy
-from src.inference.download import download
+from unirig.inference.download import download
 
-from src.data.asset import Asset
-from src.data.extract import get_files
-from src.data.dataset import UniRigDatasetModule, DatasetConfig, ModelInput
-from src.data.datapath import Datapath
-from src.data.transform import TransformConfig
-from src.tokenizer.spec import TokenizerConfig
-from src.tokenizer.parse import get_tokenizer
-from src.model.parse import get_model
-from src.system.parse import get_system, get_writer
+from unirig.data.asset import Asset
+from unirig.data.extract import get_files
+from unirig.data.dataset import UniRigDatasetModule, DatasetConfig, ModelInput
+from unirig.data.datapath import Datapath
+from unirig.data.transform import TransformConfig
+from unirig.tokenizer.spec import TokenizerConfig
+from unirig.tokenizer.parse import get_tokenizer
+from unirig.model.parse import get_model
+from unirig.system.parse import get_system, get_writer
 
 from tqdm import tqdm
 import time

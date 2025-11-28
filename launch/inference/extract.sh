@@ -27,7 +27,7 @@ time=$(date "+%Y_%m_%d_%H_%M_%S")
 for (( i=0; i<num_runs; i++ ))
 do
     cmd=" \
-    uv run python -m src.data.extract \
+    uv run python -m unirig.data.extract \
     --config=$config \
     --require_suffix=$require_suffix \
     --force_override=$force_override \

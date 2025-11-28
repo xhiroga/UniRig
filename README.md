@@ -100,7 +100,7 @@ All floating-point values are stored in **`float16`** format for compression.
 Put the dataset in `dataset_clean`, go back to root, and run the command to export FBX model:
 
 ```python
-from src.data.raw_data import RawData
+from unirig.data.raw_data import RawData
 raw_data = RawData.load("dataset_clean/rigxl/12345/raw_data.npz")
 raw_data.export_fbx("res.fbx")
 ```
@@ -225,7 +225,7 @@ This section provides the configuration files needed to reproduce the results tr
 
     Data augmentations. Defined in `configs/transform/train_rignet_ar_transform.yaml`.
 
-    For details on the augmentation operations, refer to `src/data/augment.py`.
+    For details on the augmentation operations, refer to `src/unirig/data/augment.py`.
 
 3. tokenizer:
 
@@ -243,7 +243,7 @@ This section provides the configuration files needed to reproduce the results tr
 
 6. task:
 
-    The final training config. Defined in `configs/task/train_rignet_ar.yaml`. This integrates all components above, and also configures `loss`, `optimizer`, and `scheduler`. You can find optimizers and schedulers initialization in `src/system/optimizer.py` and `src/system/scheduler.py`.
+    The final training config. Defined in `configs/task/train_rignet_ar.yaml`. This integrates all components above, and also configures `loss`, `optimizer`, and `scheduler`. You can find optimizers and schedulers initialization in `src/unirig/system/optimizer.py` and `src/unirig/system/scheduler.py`.
     
     The `trainer` section controls GPU/node usage (multi-node training is not tested).
     

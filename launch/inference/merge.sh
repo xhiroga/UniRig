@@ -16,7 +16,7 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 cmd=" \
-    uv run python -m src.inference.merge \
+    uv run python -m unirig.inference.merge \
     --require_suffix=$require_suffix \
     --num_runs=1 \
     --id=0 \
